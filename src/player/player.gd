@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 # steps
 # have a camera head

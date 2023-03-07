@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://0tl0xpj0js8j"]
+
+[ext_resource type="Script" path="res://src/player/weapons/gun1/gun1.gd" id="1_yh1pi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v5hed"]
+size = Vector3(0.05, 0.05, 1)
+
+[node name="Gun" type="Node3D"]
+transform = Transform3D(0.995292, 0, 0.0969228, 0, 1, 0, -0.0969228, 0, 0.995292, 0.143575, -0.187682, 0.254064)
+script = ExtResource("1_yh1pi")
+
+[node name="ProjSpawner" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0104075, 0.0459515, -0.506955)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.970294, -0.0555487, 0.235465, 0.0544191, 0.998454, 0.011298, -0.235729, 0.00185147, 0.971817, 0.114307, 0.059977, -0.0260139)
+mesh = SubResource("BoxMesh_v5hed")
