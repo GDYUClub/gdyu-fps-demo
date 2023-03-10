@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1nhhujj4yr0q"]
+[gd_scene load_steps=7 format=3 uid="uid://d1nhhujj4yr0q"]
 
 [ext_resource type="PackedScene" uid="uid://b1o1fpigjo8tb" path="res://src/player/player.tscn" id="1_l3wge"]
 [ext_resource type="Script" path="res://src/level/lvl1.gd" id="1_ob5fw"]
+[ext_resource type="PackedScene" uid="uid://65ovfrkfugmf" path="res://src/enemies/enemy.tscn" id="3_nnpvv"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3eumf"]
 size = Vector2(25, 25)
@@ -31,3 +32,6 @@ light_energy = 2.0
 
 [node name="Player" parent="." instance=ExtResource("1_l3wge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.7438, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("3_nnpvv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.541301, -7.02929)

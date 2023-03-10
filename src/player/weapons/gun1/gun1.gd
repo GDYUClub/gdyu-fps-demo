@@ -1,13 +1,14 @@
 extends Node3D
 
 @onready var projSpawner = $ProjSpawner 
+
+@onready var player = get_parent().get_parent()
 @onready var projScene = preload("res://src/player/weapons/projectile.tscn")
-var speed := 5.0
+var speed := -0.1
 var looking_dir = Vector3.ZERO
 
 var proj_velocity:Vector3 = Vector3.ZERO
 
-@onready var player:Player = get_parent().get_parent().get_parent()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,11 +18,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("shoot"):
-		make_proj()
+	pass
 
-func make_proj():
-	looking_dir = global_position - player.global_position 
+func make_proj(gun_dir:Vector3):
+	print('proj')
 	var proj := projScene.instantiate()
-	proj.velocity = looking_dir * speed 
-	get_tree().get_root().add_child(proj)
+	proj.position =  projSpawner.position
+	gun_dir = projSpawner.get_global_transform().basis.z
+	proj.velocity = gun_dir * speed 
+	get_parent().get_parent().get_parent().get_parent().add_child(proj)

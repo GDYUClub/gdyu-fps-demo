@@ -1,7 +1,8 @@
+res://src/player/player.tscn
+res://src/level/lvl1.tscn
 res://src/player/weapons/gun1/gun1.tscn
+res://src/player/weapons/projectile.tscn
+res://src/enemies/enemy.tscn
+res://src/enemies/enemy.gd
 res://src/player/player.gd
 res://src/player/weapons/gun1/gun1.gd
-res://src/level/lvl1.tscn
-res://src/player/player.tscn
-res://src/player/weapons/projectile.gd
-res://src/player/weapons/projectile.tscn
