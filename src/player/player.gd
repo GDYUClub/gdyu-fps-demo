@@ -8,13 +8,12 @@ class_name Player
 # move
 # jump
 @onready var cameraArm = $CameraArm
-@onready var aimcast := $CameraArm/Gun/GunModel/AimCast
-@onready var gunModel := $CameraArm/Gun/GunModel
-@onready var currentGun := $CameraArm/Gun
+@onready var aimcast := $CameraArm/AimCast
+
 
 #var velocity = Vector3.ZERO
 var speed:= 15.0
-var camera_sensitivity := Vector2(13,10)
+var camera_sensitivity := Vector2(7,5)
 var max_y_rotation := 70.0
 var input_dir:= Vector2.ZERO
 var gravity := 10.0
@@ -53,14 +52,14 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z,0,speed)
 	
 	if Input.is_action_just_pressed("shoot"):
-		camera_dir = cameraArm.get_global_transform().basis.z
-		currentGun.make_proj(camera_dir)
+		#camera_dir = cameraArm.get_global_transform().basis.z
+		#currentGun.make_proj(camera_dir,velocity)
 
-		#if aimcast.is_colliding():
-			#var target = aimcast.get_collider()
-			#if target.is_in_group("enemy"):
-				#print('hit enemy')
-				#target.take_damage(damage)
+		if aimcast.is_colliding():
+			var target = aimcast.get_collider()
+			if target.is_in_group("enemy"):
+				print('hit enemy')
+				target.take_damage(damage)
 
 
 	move_and_slide()
